@@ -9,15 +9,11 @@
       <font-awesome-icon :icon="['fas', 'gear']" />
     </router-link>
 
-    <router-link to="/login" v-if="!user">
+    <router-link to="/login" v-else class="first">
       <font-awesome-icon :icon="['fas', 'user-tie']" />
     </router-link>
 
-    <div
-      class="logout"
-      @click="$store.dispatch('logout', 'user')"
-      v-if="showLogout"
-    >
+    <div class="logout" @click="logout" v-if="showLogout">
       <font-awesome-icon :icon="['fas', 'arrow-right-from-bracket']" />
     </div>
   </header>
@@ -44,7 +40,11 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+    logout() {
+      this.$store.dispatch('logout', this.user ? 'user' : 'admin');
+    },
+  },
   created() {
     // console.log(this.showLogout());
   },
