@@ -82,6 +82,7 @@ export default {
       });
 
     this.$bus.on('updateCertificates', this.updateCertificates);
+    this.$bus.on('closeAddUserCertificateModal', this.closeModal);
   },
   methods: {
     getUserCertificates() {
@@ -125,6 +126,7 @@ export default {
   },
   beforeUnmount() {
     this.$bus.off('updateCertificates', this.updateCertificates);
+    this.$bus.off('closeAddUserCertificateModal', this.closeModal);
   },
 };
 </script>

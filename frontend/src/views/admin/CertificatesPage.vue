@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AdminLayout>
     <h2>Certificates</h2>
 
     <div v-if="certificates">
@@ -20,11 +20,12 @@
     <button @click="openModal">New Certificate</button>
 
     <CreateCertificate v-if="isModalOpen" />
-  </div>
+  </AdminLayout>
 </template>
 
 <script>
 import CreateCertificate from '@/components/admins/CreateCertificate.vue';
+import AdminLayout from '@/layouts/AdminLayout.vue';
 
 export default {
   name: 'CertificatesPage',
@@ -82,6 +83,6 @@ export default {
       this.$bus.off('updateAllCertificates', this.updateCertificates);
     },
   },
-  components: { CreateCertificate },
+  components: { CreateCertificate, AdminLayout },
 };
 </script>

@@ -32,6 +32,19 @@ export default {
     justify-content: center;
     align-items: center;
     flex: 1;
+
+    button {
+      background-color: #8e44ad;
+      border: 2px solid #8e44ad;
+      border-radius: 4px;
+      color: #fff;
+      display: block;
+      font-family: inherit;
+      font-size: 16px;
+      padding: 10px;
+      margin-top: 20px;
+      width: fit-content;
+    }
   }
 }
 </style>

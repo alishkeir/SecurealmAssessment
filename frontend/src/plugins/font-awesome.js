@@ -1,5 +1,8 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowRightFromBracket,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faArrowRightFromBracket);
+library.add(faArrowRightFromBracket, faXmark);

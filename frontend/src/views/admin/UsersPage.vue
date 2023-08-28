@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AdminLayout>
     <h2>Users Page</h2>
 
     <table>
@@ -43,10 +43,12 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </AdminLayout>
 </template>
 
 <script>
+import AdminLayout from '@/layouts/AdminLayout.vue';
+
 export default {
   name: 'UsersPage',
   data() {
@@ -69,7 +71,6 @@ export default {
     },
     updateApproved(id, approve) {
       console.log(approve);
-
       this.$http
         .put(
           '/admin/user/approve',
@@ -91,5 +92,6 @@ export default {
         });
     },
   },
+  components: { AdminLayout },
 };
 </script>
