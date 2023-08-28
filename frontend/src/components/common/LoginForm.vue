@@ -68,7 +68,7 @@ export default {
 
   props: {
     url: String,
-    user: String,
+    user: Boolean,
   },
   methods: {
     validateAndLogin() {

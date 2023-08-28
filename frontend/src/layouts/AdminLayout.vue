@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <Navbar />
+    <Navbar :user="false" />
 
     <div class="content">
       <slot></slot>

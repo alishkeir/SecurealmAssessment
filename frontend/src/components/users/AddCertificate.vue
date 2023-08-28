@@ -90,6 +90,9 @@ export default {
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.6);
+  left: 0;
+  top: 0;
+
   &-content {
     display: flex;
     flex-direction: column;

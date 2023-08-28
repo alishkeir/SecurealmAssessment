@@ -6,48 +6,38 @@ import router from '@/router';
 
 const store = createStore({
   state() {
-    return {
-      //   isUserLoggedIn: false,
-      userData: [],
-      userType: 'user',
-    };
+    return {};
   },
-  mutations: {
-    //^ ====== User mutations ======
-    logoutUser(state) {
-      state.isUserLoggedIn = false;
-    },
-    loginUser(state) {
-      state.isUserLoggedIn = true;
-    },
-
-    //^ ====== Admin mutations ======
-  },
+  mutations: {},
   getters: {
     isLoggedIn: () => (userType) => {
       let loggedIn = false;
-      if (cookie.get('token')) {
-        jwt.verify(
-          cookie.get('token'),
-          process.env.VUE_APP_JWT_SECRET,
-          (err, decoded) => {
-            if (err) {
-              cookie.remove('token');
-              cookie.remove('user_id');
-            } else {
-              if (
-                decoded.iss !==
-                `${process.env.VUE_APP_API_URL}/${userType}/login`
-              ) {
+
+      if (userType)
+        if (cookie.get('token')) {
+          jwt.verify(
+            cookie.get('token'),
+            process.env.VUE_APP_JWT_SECRET,
+            (err, decoded) => {
+              if (err) {
                 cookie.remove('token');
                 cookie.remove('user_id');
               } else {
-                loggedIn = true;
+                console.log(userType);
+
+                if (
+                  decoded.iss !==
+                  `${process.env.VUE_APP_API_URL}/${userType}/login`
+                ) {
+                  cookie.remove('token');
+                  cookie.remove('user_id');
+                } else {
+                  loggedIn = true;
+                }
               }
             }
-          }
-        );
-      }
+          );
+        }
 
       return loggedIn;
     },
